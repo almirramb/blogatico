@@ -11,9 +11,23 @@ Blogático é um gerador de websites estáticos com as seguintes característica
 * Fácil de hospedar em qualquer local
 * O conteúdo pode ser convertido noutros formatos
 
-//Como este arquivo servirá para criar sites; vou estudar abaixo um caso de uso...
+* Como este arquivo servirá para criar sites; vou estudar abaixo um caso de uso...
+* Ou seja: como vai funcionar? Quais os parametros dele? 
 
-// Ou seja: como vai funcionar? Quais os parametros dele? 
+
+
+Dependências
+............
+
+O blogático depende dos seguintes pacotes instalados no seu sistema:
+* bash
+* perl
+* coreutils
+* findutils
+* pandoc
+* rsync
+
+
 
 Criando um site
 ...............
