@@ -1,0 +1,40 @@
+Este Readme será tratado como um documento de Design que ajudará a programar o software.
+
+Blogático: compilador de sitio estático
+=======================================
+
+Blogático é um gerador de websites estáticos com as seguintes características:
+
+* Simplicidade e facilidade de uso
+* Baseado em arquivos de texto com formatação básica
+* Pouca dependência em aplciações e bibliotecas externas
+* Fácil de hospedar em qualquer local
+* O conteúdo pode ser convertido noutros formatos
+
+//Como este arquivo servirá para criar sites; vou estudar abaixo um caso de uso...
+
+// Ou seja: como vai funcionar? Quais os parametros dele? 
+
+Criando um site
+...............
+
+Vamos ilustrar com simples comandos:
+
+Por exemplo, tendo o site instalado, quer um blog? Cria uma pasta no seu site um pasta de dados...
+
+	#Crie a pasta do seu site já com a pasta de dados
+	mkdir -p ~/projetos/blog/data
+
+	# Depois entre na pasta, pois o software deve ser rodado na pasta que criaremos
+	cd ~/projetos/blog
+
+	# Agora crie uma página inicial usando o comando Eco. O camando Eco coloca o texto no terminal; mas vamos usar o > para redirecionar esta saída para o arquivo index.mdwn
+
+	# Crie uma pasta inicial
+	echo "Oi mundo!" > data/index.mdwn
+
+	# Compile o arquivo!
+	blogatico
+
+// O sítio compilado será criado na pasta 'output', pronta para ser copiada para um ambiente web
+
