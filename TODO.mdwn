@@ -1,0 +1,9 @@
+TODO
+====
+
+
+* Criar o repositório do projeto
+* Script básico para geração do site
+* Criar o repositório git para projeto
+* Documentação
+* Lançamento!

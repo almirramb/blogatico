@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# Acima começamos com o cabeçalho do blogatico:
+
+#Depois vamos colocar uma explicação do que faz o programa.
+#Blogático: gerador de conteúdo estático
+
+# Copyright (C) 2017  Almir Silva
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# Parametros básicos
+# BASEDIR chama uma subshell que é um $( comandos)
+BASEDIR="$(pwd)"
+
+# DATA vai indicar os arquivos fontes do meu Blog
+DATA="$BASEDIR/data"
+
+# onde ficarão os arquivos gerados
+OUTPUT="$BASEDIR/output"
+
+# Para gerar um arquivo html de verdade, com todos os parametros, vamos dizer ao pandoc para usar o template html
+PANDOC_OPTS="${PANDOC_OPTS=--template=default.html5}"
+
+# Agora faremos os comentários na TELA com echo, para o usuário saber o que está ocorrendo
+echo "Limpando a versão anterior do blog..."
+
+#Abaixo serve pra garantir que o software novo seja criado numa pasta limpa, sem poluição de velhos scripts.
+rm -rf $OUTPUT || exit 1
+
+# Agora vamos criar as pastas de saídas, pois a pasta de dados o usuário está criando….
+echo "Garantindo a existencia das pastas necessárias.."
+mkdir -p $OUTPUT || exit 1
+
+#Agora nosso programa precisa copiar a estrutura da pasta para a  pasta de saídas
+
+echo "copiando a estrutura de pastas..."
+rsync -qav $DATA/ $OUTPUT/ || exit 1
+
+echo "Convertendo todos os arquivos Markdown para HTML..."
+# vamos procurar todos arquivos .mdwn e usar o software pandoc pra converter para html
+#find $OUTPUT -name '*mdwn' -exec pandoc -o {}.html {} \; || exit 1
+find $OUTPUT -name '*mdwn' -exec pandoc $PANDOC_OPTS -o {}.html {} \; || exit 1
+
+# Agora vamos corrigir os nomes de arquivos criados que terão a extensão
+find $OUTPUT -name '*.html' -exec rename 's/\.mdwn.html$/.html/' {} \; || exit 1
+
+# Agora vamos informar o usuário que o programa terminou.
+echo "Programa concluido! Tenha um bom dia:)"
+
+
+
