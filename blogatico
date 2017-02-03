@@ -32,6 +32,18 @@ OUTPUT="$BASEDIR/output"
 # Para gerar um arquivo html de verdade, com todos os parametros, vamos dizer ao pandoc para usar o template html
 PANDOC_OPTS="${PANDOC_OPTS=--template=default.html5}"
 
+echo "                                                                      "
+echo "                                                                      "
+echo "  *****    *      *****    ****    *****   *****   *    ****   *****  "
+echo "  **   *   *      *   *   *        *   *     *     *   *       *   *  "
+echo "  ** **    *      *   *   * ***    *****     *     *   *       *   *  "
+echo "  **   *   *      *   *   * *  *   *   *     *     *   *       *   *  "
+echo "  *****    ****   *****    ****    *   *     *     *    ****   *****  "
+echo "                                                                      "
+echo "                                          Gerador de Sítio Estático!  "
+echo "                                                                      "
+echo "                                                                      "
+
 # Agora faremos os comentários na TELA com echo, para o usuário saber o que está ocorrendo
 echo "Limpando a versão anterior do blog..."
 
