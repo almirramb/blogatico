@@ -1,4 +1,10 @@
-Oi Mundo"
-=========
+Blogatico: gerador de Websites estaticos
+========================================
 
-Testando o blogático!
+Oi Mundo! Este site é um exemplo de documentação do blogático
+
+Implementação
+-------------
+
+O Blogatico é um script escrito em bash que utiliza o [Pandoc](http://pandoc.org)
+Para compilar um website completo a partir de arquivos de texto usando a formatação Markdown.
